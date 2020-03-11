@@ -1,13 +1,13 @@
 <template>
-  <div id="app">
+	<div id="app">
     <vue-particles
-      color="#dedede"
+        color="#dedede"
         :particleOpacity="0.7"
-        :particlesNumber="80"
+        :particlesNumber="120"
         shapeType="circle"
         :particleSize="4"
         linesColor="#dedede"
-        :linesWidth="1"
+        :linesWidth="2"
         :lineLinked="true"
         :lineOpacity="0.4"
         :linesDistance="150"
@@ -15,46 +15,42 @@
         :hoverEffect="true"
         hoverMode="grab"
         :clickEffect="true"
-        clickMode="push">
-        </vue-particles>
-    <div id="nav">
-      
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+        clickMode="push"
+        class="bgcimg"
+    >
+    </vue-particles>
+    <div  class="tabbar_app">
+      <tabbar></tabbar>
+      <router-view/>
     </div>
-
-    <router-view/>
-    
-  </div>
+	</div>
 </template>
-<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
 <script>
+	import tabbar from "./components/common/TabBar";
   export default{
     name: 'App',
     components:{
+    	tabbar
     }
   }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  #app{
+    /*background-color: rgba(0,0,0,0.05);*/
+  }
+  .bgcimg{
+    position:fixed;
+    z-index: -1;
+    top:0;
+    width:100%;
+  }
+.tabbar_app{
+  /*margin: 5% 0 0 0;*/
+  width: 70%;
+  /*margin: 0 10%;*/
+  padding: 0 15%;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
